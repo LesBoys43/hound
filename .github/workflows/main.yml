@@ -20,10 +20,10 @@ jobs:
         uses: actions/setup-node@v7.1.0
 
       - name: 安装交叉编译器
-        run: sudo apt install gcc-mingw-w64-i686 g++-mingw-w64-i686
+        run: sudo apt install gcc-mingw-w64-amd64 g++-mingw-w64-amd64
 
       - name: 构建
-        run: CGO_ENABLED=1 GOOS=windows GOARCH=386 CC=i686-w64-mingw32-gcc CXX=i686-w64-mingw32-g++ make
+        run: CGO_ENABLED=1 GOOS=windows GOARCH=amd64 CC=i686-w64-mingw32-gcc CXX=i686-w64-mingw32-g++ make
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v7.0.2
